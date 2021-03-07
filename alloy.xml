@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language name="C++" version="1" kateversion="2.4" section="Sources" extensions="*.als">
+<highlighting>
+    <list name="structure">
+      <item>sig</item>
+      <item>fun</item>
+      <item>fact</item>
+      <item>pred</item>
+      <item>abstract</item>
+      <item>assert</item>
+      <item>extends</item>
+      <item>set</item>
+    </list>
+    <list name="commands">
+        <item>run</item>
+        <item>check</item>
+        <item>for</item>
+        <item>exactly</item>
+    </list>
+    <list name="quantifiers">
+      <item>all</item>
+      <item>some</item>
+      <item>no</item>
+      <item>lone</item>
+      <item>one</item>
+    </list>
+    <list name="operators">
+        <item>and</item>
+        <item>or</item>
+        <item>implies</item>
+        <item>else</item>
+        <item>not</item>
+        <item>iff</item>
+        <item>in</item>
+      </list>
+    <contexts>
+      <context attribute="Normal Text" lineEndContext="#pop" name="Normal Text" >
+        <keyword attribute="Keyword" context="#stay" String="structure" />
+        <keyword attribute="Command" context="#stay" String="commands" />
+        <keyword attribute="Quantifier" context="#stay" String="quantifiers" />
+        <keyword attribute="Operator" context="#stay" String="operators" />
+        <DetectChar attribute="Operator" context="#stay" char="#" />
+        <DetectChar attribute="Operator" context="#stay" char="*" />
+        <DetectChar attribute="Operator" context="#stay" char="." />
+        <DetectChar attribute="Operator" context="#stay" char="^" />
+        <DetectChar attribute="Operator" context="#stay" char="~" />
+        <DetectChar attribute="Operator" context="#stay" char="&gt;" />
+        <DetectChar attribute="Operator" context="#stay" char="&lt;" />
+        <DetectChar attribute="Operator" context="#stay" char="=" />
+        <DetectChar attribute="Operator" context="#stay" char="|" />
+        <DetectChar attribute="Operator" context="#stay" char="!" />
+        <DetectChar attribute="Operator" context="#stay" char="," />
+        <Detect2Chars attribute="Operator" context="#stay" char="&amp;" char1="&amp;"/>
+        <Detect2Chars attribute="Operator" context="#stay" char="|" char1="|"/>
+        <Detect2Chars attribute="Operator" context="#stay" char="=" char1=">"/>
+        <Detect2Chars attribute="Operator" context="#stay" char="-" char1=">"/>
+        <StringDetect attribute="Operator" context="#stay" String="&lt;=&gt;"/>
+        <DetectChar attribute="String" context="string" char="&quot;" />
+        <Detect2Chars attribute="Comment" context="Commentar 1" char="-" char1="-"/> 
+        <Detect2Chars attribute="Comment" context="Commentar 2" char="/" char1="*" beginRegion="Comment"/> 
+      </context>
+      <context attribute="String" lineEndContext="#stay" name="string" >
+        <DetectChar attribute="String" context="#pop" char="&quot;" />
+      </context>
+      <context attribute="Comment" lineEndContext="#pop" name="Commentar 1">
+      </context>
+      <context attribute="Comment" lineEndContext="#stay" name="Commentar 2">
+        <Detect2Chars attribute="Comment" context="#pop" char="*" char1="/" endRegion="Comment"/>
+      </context>
+    </contexts>
+    <itemDatas>
+      <itemData name="Normal Text" defStyleNum="dsNormal" />
+      <itemData name="Keyword" defStyleNum="dsKeyword" />
+      <itemData name="Command" defStyleNum="dsPreprocessor" />
+      <itemData name="Quantifier" defStyleNum="dsControlFlow" />
+      <itemData name="Operator" defStyleNum="dsVariable" />
+      <itemData name="String" defStyleNum="dsString" />
+      <itemData name="Comment" defStyleNum="dsComment"/>
+    </itemDatas>
+  </highlighting>
+  <general>
+    <comments>
+      <comment name="singleLine" start="--"/>
+      <comment name="multiLine" start="/*" end="*/"/>
+    </comments>
+    <keywords casesensitive="1"/>
+    <folding indentationsensitive="0"/>
+    <emptyLines>
+      <emptyLine regexpr="\s+"/>
+      <emptyLine regexpr="\s*--.*"/>
+    </emptyLines>
+  </general>
+</language>
