@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<language name="C++" version="1" kateversion="2.4" section="Sources" extensions="*.als">
+<language name="alloy" version="1" kateversion="2.4" section="Sources" extensions="*.als">
 <highlighting>
     <list name="structure">
       <item>sig</item>
